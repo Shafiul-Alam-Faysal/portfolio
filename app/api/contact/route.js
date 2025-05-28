@@ -3,20 +3,21 @@ import axios from "axios";
 export async function POST(req) {
 	try {
 		const formData = await req.formData();
-		formData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
 
+		// Convert to URLSearchParams
 		const data = new URLSearchParams();
+		data.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
 		for (const [key, value] of formData.entries()) {
 			data.append(key, value);
 		}
 
 		const response = await axios.post(
 			"https://api.web3forms.com/submit",
-			data,
+			data.toString(),
 			{
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
-					Accept: "application/json", // ✅ Critical fix
+					Accept: "application/json", // ✅ Important: Request JSON response
 				},
 			}
 		);
