@@ -26,7 +26,7 @@ const Header = () => {
 				transition={{ duration: 0.6, delay: 0.3 }}
 				className="flex items-end gap-2 text-xl md:text-2xl mb-3 font-ovo"
 			>
-				Hi! I'm Shafiul Alam Faysal{" "}
+				Hi! I&apos;m Shafiul Alam Faysal{" "}
 				<Image src={assets.hand_icon} alt="Waving hand icon" className="w-6" />
 			</motion.h3>
 			<motion.h1
