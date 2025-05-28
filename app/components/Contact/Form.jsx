@@ -42,9 +42,7 @@ const Form = () => {
 		const formData = new FormData(event.target);
 
 		try {
-			const response = await axios.post("api/contact", formData, {
-				headers: { "Content-Type": "multipart/form-data" },
-			});
+			const response = await axios.post("/api/contact", formData);
 
 			if (response.data.success) {
 				setResult("Form Submitted Successfully");
