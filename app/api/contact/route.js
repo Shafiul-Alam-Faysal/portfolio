@@ -1,9 +1,6 @@
 export async function POST(req) {
-	const body = await req.formData();
-
-	const name = body.get("name");
-	const email = body.get("email");
-	const message = body.get("message");
+	const body = await req.json();
+	const { name, email, message } = body;
 
 	const params = new URLSearchParams();
 	params.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
