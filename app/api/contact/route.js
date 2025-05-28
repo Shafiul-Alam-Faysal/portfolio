@@ -5,7 +5,6 @@ export async function POST(req) {
 		const formData = await req.formData();
 		formData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
 
-		// Convert to URLSearchParams for proper form encoding
 		const data = new URLSearchParams();
 		for (const [key, value] of formData.entries()) {
 			data.append(key, value);
@@ -17,6 +16,7 @@ export async function POST(req) {
 			{
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/json", // ✅ Critical fix
 				},
 			}
 		);
