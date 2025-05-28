@@ -1,37 +1,46 @@
+import axios from "axios";
+
 export async function POST(req) {
 	try {
-		const body = await req.json();
-		const { name, email, message } = body;
+		const formData = await req.formData();
 
-		const params = new URLSearchParams();
-		params.append("access_key", process.env.WEB3FORMS_ACCESS_KEY);
-		params.append("name", name);
-		params.append("email", email);
-		params.append("message", message);
+		// Convert formData to a plain object
+		const data = {};
+		for (const [key, value] of formData.entries()) {
+			data[key] = value;
+		}
 
-		const response = await fetch("https://api.web3forms.com/submit", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/x-www-form-urlencoded",
-			},
-			body: params.toString(),
-		});
+		// Add your Web3Forms access key from environment variables
+		data.access_key = process.env.WEB3FORMS_ACCESS_KEY;
 
-		const data = await response.json();
+		// Send the form data to Web3Forms API
+		const response = await axios.post(
+			"https://api.web3forms.com/submit",
+			data,
+			{
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		);
 
-		return new Response(JSON.stringify(data), {
-			status: response.status,
+		// Return the response from Web3Forms
+		return new Response(JSON.stringify(response.data), {
+			status: 200,
 			headers: { "Content-Type": "application/json" },
 		});
 	} catch (error) {
-		console.error("CONTACT API ERROR:", error); // ✅ See this in Vercel logs
+		console.error("Error in contact API:", error);
+
 		return new Response(
 			JSON.stringify({
 				success: false,
-				message: "Form submission failed.",
-				error: error.message,
+				message: error.message || "Internal Server Error",
 			}),
-			{ status: 500 }
+			{
+				status: 500,
+				headers: { "Content-Type": "application/json" },
+			}
 		);
 	}
 }
