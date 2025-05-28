@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/app/context/DarkModeContext";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 
@@ -16,12 +17,18 @@ const navLinks = [
 ];
 
 const NavLinks = ({ menuOpen, toggleMenu, isScroll }) => {
+	const { isDarkMode } = useDarkMode();
+
 	return (
 		<>
 			{/* Desktop Navigation */}
 			<ul
 				className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 
-          ${isScroll ? "" : "bg-white bg-opacity-50 shadow-sm"}`}
+          ${
+						isScroll
+							? ""
+							: "bg-white bg-opacity-50 shadow-sm dark:border dark:border-white/50 dark:bg-transparent"
+					}`}
 			>
 				{navLinks.map((link) => (
 					<li key={link.id}>
@@ -34,7 +41,7 @@ const NavLinks = ({ menuOpen, toggleMenu, isScroll }) => {
 
 			{/* Mobile Navigation */}
 			<ul
-				className={`flex md:hidden flex-col gap-4 py-20 px-10 fixed top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition-transform duration-500 ${
+				className={`flex md:hidden flex-col gap-4 py-20 px-10 fixed top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition-transform duration-500 dark:bg-darkHover dark:text-white ${
 					menuOpen ? "right-0" : "-right-64"
 				}`}
 				role="navigation"
@@ -47,7 +54,7 @@ const NavLinks = ({ menuOpen, toggleMenu, isScroll }) => {
 					aria-label="Close menu"
 				>
 					<Image
-						src={assets.close_black}
+						src={isDarkMode ? assets.close_white : assets.close_black}
 						alt="Close menu"
 						className="w-5 cursor-pointer"
 					/>

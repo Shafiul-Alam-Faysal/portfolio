@@ -77,6 +77,8 @@ export const assets = {
 	right_arrow_bold_dark,
 };
 
+// --- Works ---
+
 export const workData = [
 	{
 		title: "Frontend project",
@@ -100,58 +102,57 @@ export const workData = [
 	},
 ];
 
+// --- Services ---
 export const serviceData = [
 	{
 		icon: assets.web_icon,
-		title: "Web design",
-		description:
-			"Web development is the process of building, programming, and maintaining websites and web applications. It includes everything from creating simple static pages to complex dynamic platforms.",
+		title: "Web Design",
+		description: `Building responsive, user-focused websites using modern web technologies. Clean UI, maintainable code.`,
 		link: "",
 	},
 	{
 		icon: assets.mobile_icon,
-		title: "Mobile app",
-		description:
-			"Mobile app development involves creating software for mobile devices like smartphones and tablets. It requires expertise in native or cross-platform frameworks to deliver responsive, user-friendly apps.",
+		title: "Mobile App",
+		description: `Cross-platform mobile app development with optimized performance and seamless UX.`,
 		link: "",
 	},
 	{
 		icon: assets.ui_icon,
-		title: "UI/UX design",
-		description:
-			"UI/UX design focuses on creating a seamless user experience and visually appealing interfaces. It includes wireframing, prototyping, and interaction design to enhance usability.",
+		title: "UI/UX Design",
+		description: `Crafting visually appealing, intuitive user interfaces through wireframes, prototypes, and final designs.`,
 		link: "",
 	},
 	{
 		icon: assets.graphics_icon,
-		title: "Graphics design",
-		description:
-			"Creative design solutions to enhance visual communication through illustrations, typography, branding, and layout. It helps in crafting strong visual identities for businesses.",
+		title: "Graphics Design",
+		description: `Creating engaging visuals for branding, social media, and digital marketing campaigns.`,
 		link: "",
 	},
 ];
 
+// --- Developer Info ---
 export const infoList = [
 	{
 		icon: assets.code_icon,
 		iconDark: assets.code_icon_dark,
 		title: "Languages",
-		description: "HTML, CSS, JavaScript React Js, Next Js",
+		description: "HTML, CSS, JavaScript, React, Next.js",
 	},
 	{
 		icon: assets.edu_icon,
 		iconDark: assets.edu_icon_dark,
 		title: "Education",
-		description: "B.Tech in Computer Science",
+		description: "BSc in Computer Science and Engineering",
 	},
 	{
 		icon: assets.project_icon,
 		iconDark: assets.project_icon_dark,
 		title: "Projects",
-		description: "Built more than 5 projects",
+		description: "Built over 5 production-level projects",
 	},
 ];
 
+// --- Tools ---
 export const toolsData = [
 	assets.vscode,
 	assets.firebase,
@@ -159,31 +160,26 @@ export const toolsData = [
 	assets.git,
 ];
 
+// --- Section Metadata ---
 export const sectionData = {
 	AboutMe: {
 		name: "Introduction",
-		title: "About me",
-		description: `👋 I'm Shafiul Alam Faysal, a frontend developer from Bangladesh. I
-      build fast, responsive, and user-friendly web apps using React,
-      Next.js, and Tailwind CSS. I'm passionate about clean design,
-      smooth user experiences, and writing maintainable code.`,
+		title: "About Me",
+		description: `👋 I'm Shafiul Alam Faysal, a frontend developer from Bangladesh. I build fast, responsive, and user-friendly web apps using React, Next.js, and Tailwind CSS. I'm passionate about clean design, smooth user experiences, and writing maintainable code.`,
 	},
 	services: {
-		name: "What I offer",
+		name: "What I Offer",
 		title: "My Services",
-		description: `👋 I'm Shafiul Alam Faysal, a frontend developer from Bangladesh. I
-      build fast, responsive, and user-friendly web apps using React, Next.js,
-      and Tailwind CSS. I'm passionate about clean design, smooth user
-      experiences, and writing maintainable code.`,
+		description: `From responsive websites to mobile apps and UI/UX design, I provide end-to-end frontend solutions for modern digital needs.`,
 	},
 	work: {
-		name: "My portfolio",
-		title: "My latest work",
-		description: `Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.`,
+		name: "My Portfolio",
+		title: "My Latest Work",
+		description: `Explore a showcase of real-world projects that demonstrate my skills in frontend development, UI/UX, and responsive design.`,
 	},
 	contact: {
-		name: "Connect with me",
-		title: "Get in touch",
-		description: `I'd love to hear from you! If you have any questions, feedback, or just want to say hi, please don't hesitate to reach out, please use the form below`,
+		name: "Connect with Me",
+		title: "Get in Touch",
+		description: `I'd love to hear from you! Whether you have a project in mind, want to collaborate, or just want to chat, feel free to reach out below.`,
 	},
 };
